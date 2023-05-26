@@ -1,35 +1,46 @@
 package entidades;
 
-public class Condutor {
+public class Condutor implements Comparable<Condutor> {
     private String nome;
-    private String cpf;
+    private int cpf;
     private String dataNascimento;
     private double salario;
 
-    public Condutor(String nome, String cpf, String dataNascimento, double salario) {
+    public Condutor(String nome, int cpf, String dataNascimento, double salario) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.salario = salario;
     }
 
-    public String getNome() {
-        return nome;
+    @Override
+    public int compareTo(Condutor outroCondutor) {
+        if (this.cpf < outroCondutor.getCpf()) {
+            return -1;
+        } else if (this.cpf > outroCondutor.getCpf()) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getNome() {
+        return this.nome;
+    }
+
+    public int getCpf() {
+        return this.cpf;
     }
 
     public String getDataNascimento() {
-        return dataNascimento;
+        return this.dataNascimento;
     }
 
     public double getSalario() {
-        return salario;
+        return this.salario;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(int cpf) {
         this.cpf = cpf;
     }
 

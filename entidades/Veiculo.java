@@ -2,7 +2,7 @@ package entidades;
 
 import interfaces.InterfaceVeiculo;
 
-public class Veiculo implements InterfaceVeiculo {
+public class Veiculo implements InterfaceVeiculo, Comparable<Veiculo> {
     protected String nome;
     protected double combustivel;
     protected double consumo;
@@ -13,6 +13,11 @@ public class Veiculo implements InterfaceVeiculo {
         this.combustivel = combustivel;
         this.consumo = consumo;
         this.placa = placa;
+    }
+
+    @Override
+    public int compareTo(Veiculo outroVeiculo) {
+        return this.nome.compareToIgnoreCase(outroVeiculo.getNome());
     }
 
     @Override
