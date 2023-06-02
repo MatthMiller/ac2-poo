@@ -3,8 +3,7 @@ package execucao;
 import java.util.Collections;
 import java.util.List;
 
-import entidades.Condutor;
-import entidades.Veiculo;
+import entidades.*;
 
 public class Relatorios {
     public static void imprimeCondutores(List<Condutor> condutoresList) {
@@ -20,4 +19,12 @@ public class Relatorios {
             System.out.println(v.getNome());
         }
     }
+
+    public static void imprimeViagens(List<Viagem> viagemList) {
+        Collections.sort(viagemList);
+        for (Viagem vg : viagemList) {
+            System.out.println(vg.getCondutor().getNome()+" Custo: "+vg.getCustoViagem());
+        }
+    }
+
 }
